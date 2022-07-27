@@ -10,8 +10,9 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 
     <link rel="stylesheet" href="style.css">
@@ -20,13 +21,15 @@
 </head>
 
 <body>
+
     <div class="topnav">
         <a class="active">
             <img src="https://upload.wikimedia.org/wikipedia/en/7/77/Bannari_Amman_Institute_of_Technology_logo.png"
-                alt="logo" height="80" width="120" class="clg-logo" id="ez"></a>
+                alt="logo" height="80" width="120" class="clg-logo" id="ez" onclick="myFunction()"></a>
         <a>
             <div class="search-container">
-                <form onsubmit="FindMe(event)">
+                <!-- <form> -->
+                <form onsubmit="FindMe(event);">
                     <input type="text" placeholder="Search.." id="inp">
                 </form>
             </div>
@@ -38,11 +41,19 @@
                 <!-- google gif -->
             </a>
             <a>
-                <img src="" id="account" alt>
+                <img src="" id="account" alt="Profile">
                 <!-- account profile -->
+                <p id="username">0</p>
             </a>
             <a>
-                <button type="button" id="signout">Signout<br><i class="material-icons" style="font-size:10px;">logout</i></button>
+                <!-- <button type="button" id="signout">Signout<br><i class="material-icons" style="font-size:15px;">logout</i></button> -->
+                <button type="button" id="signout"><span class="glyphicon glyphicon-log-out"></span> Log out</button>
+
+            </a>
+            <a>
+                <button type="button" id="history" onclick="window.location.href='history.html';"><span
+                        class="glyphicon glyphicon-time"></span>
+                    History</button>
             </a>
         </a>
 
@@ -93,18 +104,20 @@
 
         signout.addEventListener('click', (e) => {
             signOut(auth).then(() => {
-                window.location.reload(
-
-                );
+                // window.location.reload();
             }).catch((error) => {
-                // An error happened.
+                // An error happened.                   
             });
         }) // sign out
 
         onAuthStateChanged(auth, (user) => {
             if (user != null) {
                 let a = user.photoURL
-                document.getElementById('account').src = a //displays user profile
+                let b = user.displayName;
+                let c = user.email;
+                console.log(c)
+                document.getElementById('username').innerText = b;
+                document.getElementById('account').src = a; //displays user profile
                 document.getElementById('signout').style.display = "block"; //displays sign out button
                 document.getElementById('google').style.display = "none"; //hides google gif button
             } // if user is signed in
