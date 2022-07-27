@@ -70,6 +70,7 @@
     top: 11px;
     right: 17px;
     position: relative;
+    cursor: pointer;
 }
 
 #menu {
@@ -168,6 +169,15 @@ body {
     }
 }
 
+#account:hover + #username {
+    display: block;
+    color: white;
+    background-color: #3B3131;
+    height: fit-content;
+    font-size: 10px;
+    border-radius: 8px;
+  }
+
 
 #signout {
     display: none;
@@ -177,18 +187,69 @@ body {
     border-radius: 50%;
     height: 50px;
     margin-top: 25%;
+    cursor: pointer;
+}
+
+#username {
+    display: none;
+    /* border-radius: 50%; */
+    height: 50px;
+    margin-top: 25%;
 }
 
 #google {
     width: 100px;
     height: 80px;
     float: inline-end;
+    cursor: pointer;
 }
 
 #signout {
-    margin-top: 25%;
-    background-color: #3AB4F2;
-    border: #3AB4F2 7px solid;
+    margin-top: 17%;
+    background: red;
+    border:red 7px solid;
     border-radius: 8px;
     color: white;
 }
+
+#history {
+    margin-top: 17%;
+    background: black;
+    border: black 7px solid;
+    border-radius: 8px;
+    color: white;
+}
+
+ez {
+    cursor: pointer;
+}
+
+/* <div class="topnav">
+        <a class="active">
+            <img src="https://upload.wikimedia.org/wikipedia/en/7/77/Bannari_Amman_Institute_of_Technology_logo.png"
+                alt="logo" height="80" width="120" class="clg-logo" id="ez"></a>
+        <a>
+            <div class="search-container">
+                <form onsubmit="FindMe(event)">
+                    <input type="text" placeholder="Search.." id="inp">
+                </form>
+            </div>
+            <a>
+                <span type="submit" class="material-symbols-outlined" id="search" onclick="FindMe(event)">search</span>
+            </a>
+            <a>
+                <img src="google-loader.gif" id="google" alt="profile"><br><br>
+                <!-- google gif -->
+            </a>
+            <a>
+                <img src="" id="account" alt>
+                <!-- account profile -->
+            </a>
+            <a>
+                <button type="button" id="signout">Signout<br><i class="material-icons" style="font-size:10px;">logout</i></button>
+            </a>
+        </a>
+
+
+
+    </div> */
