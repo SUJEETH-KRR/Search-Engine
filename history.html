@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="index.js"></script>
+
+    <style>
+        #back {
+            background: #0078AA;
+            border: #0078AA 7px solid;
+            border-radius: 8px;
+            color: white;
+            margin: 1%;
+            float: right;
+        }
+
+        #timeline {
+            justify-content: center;
+            text-align: center;
+            margin-top: 4%;
+        }
+    </style>
+</head>
+
+<body>
+    <button type="button" id="back"><span class="glyphicon glyphicon-circle-arrow-left"></span> back</button>
+    <br>
+    <h2 style="font-family:fantasy; text-align: center; justify-content: center; margin-top: 5%;">HISTORY</h2>
+    <hr>
+    <p id="timeline"></p>
+
+    <script>
+        const timeline = document.getElementById("timeline");
+        const history = JSON.parse(localStorage.getItem("search")) || [];
+
+        for (let i = 0; i < history.length; ++i) {
+            const p = document.createElement("p");
+            p.innerText = history[i];
+            timeline.appendChild(p);
+        }
+
+        let back = document.getElementById('back');
+        back.addEventListener('click', (e) => {
+            window.location.href = "index.html";
+        })
+
+    </script>
+
+</body>
+
+</html>
